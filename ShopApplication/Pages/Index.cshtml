@@ -1,0 +1,45 @@
+﻿@page
+@model ShopApplication.Pages.Orders.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div id="myCarousel">
+    <h1>Homepage</h1>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerProduct[0].ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerProduct[0].Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerProduct[0].Product)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CustomerProduct) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.ID)
+                -
+                @Html.DisplayFor(modelItem => item.Customer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ID)
+                -
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
+</div>
